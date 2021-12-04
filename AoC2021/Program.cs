@@ -5,7 +5,7 @@ namespace Puzzle1
     
     class Program
     {
-        static PuzzleType activePuzzle = PuzzleType.Puzzle51;
+        static PuzzleType activePuzzle = PuzzleType.Bingo2;
         enum PuzzleType
         {
             ScanDepth,ScanDepth2,
