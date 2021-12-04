@@ -43,7 +43,7 @@ namespace Puzzle1
 
         public static void SolvePuzzle2()
         {
-            string puzzePath = "../../../Puzzle3Input.txt";
+            string puzzePath = "inputs/Puzzle3Input.txt";
             StreamReader sr = new StreamReader(puzzePath);
             List<string> oxList = new List<string>(),
                 coList = new List<string>();
