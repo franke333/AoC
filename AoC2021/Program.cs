@@ -1,11 +1,12 @@
-﻿using System;
+﻿using AoC2021;
+using System;
 
 namespace Puzzle1
 {
     
     class Program
     {
-        static PuzzleType activePuzzle = PuzzleType.Vents2;
+        static PuzzleType activePuzzle = PuzzleType.LanternFish2;
         enum PuzzleType
         {
             ScanDepth,ScanDepth2,
@@ -13,11 +14,13 @@ namespace Puzzle1
             Diagnose1,Diagnose2,
             Bingo1,Bingo2,
             Vents1, Vents2,
+            Lanternfish1,LanternFish2
 
 
         }
         static void Main(string[] args)
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             switch (activePuzzle)
             {
                 case PuzzleType.ScanDepth:
@@ -50,9 +53,17 @@ namespace Puzzle1
                 case PuzzleType.Vents2:
                     Puzzle5.SolvePuzzle2();
                     break;
+                case PuzzleType.Lanternfish1:
+                    Puzzle6.SolvePuzzle();
+                    break;
+                case PuzzleType.LanternFish2:
+                    Puzzle6.SolvePuzzle2();
+                    break;
                 default:
                     break;
             }
+            watch.Stop();
+            Console.WriteLine($"Time: {watch.ElapsedMilliseconds}ms");
         }
     }
 }
