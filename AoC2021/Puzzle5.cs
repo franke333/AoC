@@ -33,8 +33,12 @@ namespace Puzzle1
             public Floor(StreamReader sr,bool countDiagonals)
             {
                 List<Line> lines = new List<Line>();
+                List<string> strings = new List<string>();
                 while (!sr.EndOfStream)
-                    lines.Add(new Line(sr.ReadLine()));
+                    strings.Add(sr.ReadLine());
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+                foreach (var s in strings)
+                    lines.Add(new Line(s));
                 floor = new int[Line.max+1, Line.max+1];
                 foreach (var l in lines)
                 {
@@ -60,6 +64,11 @@ namespace Puzzle1
                         }
                     }
                 }
+                var overlaps = CountOverlaps();
+                watch.Stop();
+                var elapsedMs = watch.ElapsedMilliseconds;
+                Console.WriteLine(overlaps);
+                Console.WriteLine($"Time (no I/O): {elapsedMs}ms");
             }
             public int CountOverlaps()
             {
