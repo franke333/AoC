@@ -21,7 +21,6 @@ namespace AoC2021
             }
             long sum = freshlyBornFish[(days+1)%7];
             foreach (long f in fish) sum += f;
-
             Console.WriteLine(sum);
         }
         public static void SolvePuzzle()
