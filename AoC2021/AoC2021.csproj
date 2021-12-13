@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="inputs\Puzzle10Input.txt" />
+    <None Remove="inputs\Puzzle11Input.txt" />
+    <None Remove="inputs\Puzzle12Input.txt" />
+    <None Remove="inputs\Puzzle13Input.txt" />
     <None Remove="inputs\Puzzle3Input.txt" />
     <None Remove="inputs\Puzzle4Input.txt" />
     <None Remove="inputs\Puzzle5Input.txt" />
@@ -16,8 +20,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="inputs\Puzzle10Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="inputs\Puzzle13Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="inputs\Puzzle12Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="inputs\Puzzle3Input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="inputs\Puzzle11Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="inputs\Puzzle9Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
