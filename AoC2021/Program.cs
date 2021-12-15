@@ -6,7 +6,7 @@ namespace Puzzle1
     
     class Program
     {
-        static PuzzleType activePuzzle = PuzzleType.Origami;
+        static PuzzleType activePuzzle = PuzzleType.Polymers;
         enum PuzzleType
         {
             ScanDepth,ScanDepth2,
@@ -22,6 +22,7 @@ namespace Puzzle1
             Octopuses1,Octopuses2,
             Path,
             Origami,
+            Polymers,
 
 
 
@@ -99,6 +100,9 @@ namespace Puzzle1
                     break;
                 case PuzzleType.Origami:
                     Puzzle13.SolvePuzzle();
+                    break;
+                case PuzzleType.Polymers:
+                    Puzzle14.SolvePuzzle();
                     break;
                 default:
                     break;
