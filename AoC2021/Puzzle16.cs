@@ -139,29 +139,7 @@ namespace AoC2021
             StreamReader sr = new StreamReader("inputs/Puzzle16Input.txt");
             StringBuilder sb = new StringBuilder();
             foreach (char c in sr.ReadLine())
-            {
-                switch(c)
-                {
-                    case '0': sb.Append("0000"); break;
-                    case '1': sb.Append("0001"); break;
-                    case '2': sb.Append("0010"); break;
-                    case '3': sb.Append("0011"); break;
-                    case '4': sb.Append("0100"); break;
-                    case '5': sb.Append("0101"); break;
-                    case '6': sb.Append("0110"); break;
-                    case '7': sb.Append("0111"); break;
-                    case '8': sb.Append("1000"); break;
-                    case '9': sb.Append("1001"); break;
-                    case 'A': sb.Append("1010"); break;
-                    case 'B': sb.Append("1011"); break;
-                    case 'C': sb.Append("1100"); break;
-                    case 'D': sb.Append("1101"); break;
-                    case 'E': sb.Append("1110"); break;
-                    case 'F': sb.Append("1111"); break;
-                    default:
-                        throw new Exception("bruh?");
-                }
-            }
+                sb.Append(Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0'));
             var p = Packet.Process(sb.ToString()).Item1;
             Console.WriteLine(p.GetVersionSum());
             Console.WriteLine(p.GetExpressionResult());
