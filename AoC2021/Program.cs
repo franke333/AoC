@@ -6,7 +6,7 @@ namespace Puzzle1
     
     class Program
     {
-        static PuzzleType activePuzzle = PuzzleType.TrickShot;
+        static PuzzleType activePuzzle = PuzzleType.SnailFish;
         enum PuzzleType
         {
             ScanDepth,ScanDepth2,
@@ -26,6 +26,7 @@ namespace Puzzle1
             Maze,
             Packets,
             TrickShot,
+            SnailFish,
 
 
         }
@@ -114,7 +115,10 @@ namespace Puzzle1
                     break;
                 case PuzzleType.TrickShot:
                     Puzzle17.SolvePuzzle();
-                        break;
+                    break;
+                case PuzzleType.SnailFish:
+                    Puzzle18.SolvePuzzle();
+                    break;
                 default:
                     break;
             }

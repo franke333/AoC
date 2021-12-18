@@ -13,6 +13,7 @@
     <None Remove="inputs\Puzzle14Input.txt" />
     <None Remove="inputs\Puzzle15Input.txt" />
     <None Remove="inputs\Puzzle16Input.txt" />
+    <None Remove="inputs\Puzzle18Input.txt" />
     <None Remove="inputs\Puzzle3Input.txt" />
     <None Remove="inputs\Puzzle4Input.txt" />
     <None Remove="inputs\Puzzle5Input.txt" />
@@ -24,6 +25,9 @@
 
   <ItemGroup>
     <Content Include="inputs\Puzzle10Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="inputs\Puzzle18Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="inputs\Puzzle16Input.txt">
