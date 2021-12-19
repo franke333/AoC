@@ -92,16 +92,15 @@ namespace AoC2021
                         {   //try  ob = b
                             Beacon OtherscannerPos = new Beacon(b.x - ob.x, b.y - ob.y, b.z - ob.z);
                             int hits = 0;
-                            foreach(var oob in other.beacons.Select(b => del(b)+ OtherscannerPos))
+                            foreach (var oob in other.beacons.Select(b => del(b) + OtherscannerPos))
                                 if (beacons.Contains(oob))
-                                    hits++;
-                            if (hits >= 12)
-                            {
-                                foreach (var oob in other.beacons.Select(b => del(b) + OtherscannerPos))
-                                    beacons.Add(oob);
-                                scanners.Add(OtherscannerPos);
-                                return true;
-                            }
+                                    if (++hits >= 12)
+                                    {
+                                        foreach (var oobs in other.beacons.Select(b => del(b) + OtherscannerPos))
+                                            beacons.Add(oobs);
+                                        scanners.Add(OtherscannerPos);
+                                        return true;
+                                    }
                         }
                 return false;
             }
