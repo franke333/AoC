@@ -9,7 +9,7 @@ namespace AoC2021
 {
     class Puzzle17
     {
-        static int xMin=175, xMax=227, yMin=-134, yMax=-79;
+        static int xMin= 135123456, xMax= 155123456, yMin=-102123456, yMax=-78123456;
         static bool WillHit(int vx,int vy)
         {
             int x = 0, y = 0;
@@ -34,9 +34,12 @@ namespace AoC2021
             Console.WriteLine($"part1 {sum} ");
             sum = 0;
             for (int x = 0; x <= xMax; x++)
+            {
                 for (int y = yMin; y < -yMin; y++)
                     if (WillHit(x, y))
                         sum++;
+                Console.WriteLine($"{((double)x)/xMax}%");
+            }
             Console.WriteLine($"part2 {sum}");
         }
     }
