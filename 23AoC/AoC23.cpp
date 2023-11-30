@@ -32,8 +32,7 @@ IPuzzle* GetPuzzle(int puzzle) {
 	switch (puzzle)
 	{
 	case 1:
-		//return createInstance<Puzzle1>();
-		break;
+		return createInstance<Puzzle1>();
 	default:
 		break;
 	}

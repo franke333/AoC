@@ -7,7 +7,7 @@ public:
 };
 
 template<typename T>
-IPuzzle* createInstance() { return new T; }
+IPuzzle* createInstance() { return (IPuzzle*)(new T); }
 
 enum SOLUTIONENUM
 {

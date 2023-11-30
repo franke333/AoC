@@ -129,8 +129,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AoC23.cpp" />
+    <ClCompile Include="Puzzles\Puzzle1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AllIncludes.h" />
     <ClInclude Include="Puzzle.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>
