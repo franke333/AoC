@@ -4,6 +4,8 @@
 #include <cassert>
 #include <format>
 
+#include "AllIncludes.h"
+
 
 
 #define PUZZLE 1 // 1 = Puzzle 1, 2 = Puzzle 2, ..., 25 = Puzzle 25
