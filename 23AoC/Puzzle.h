@@ -1,13 +1,15 @@
 #pragma once
 
-class IPuzzle {
+class IPuzzle
+{
 public:
-		virtual void Solve() = 0;
-		virtual void SolveAdvanced() = 0;
+	virtual void Solve() = 0;
+	virtual void SolveAdvanced() = 0;
+	virtual ~IPuzzle(){};
 };
 
-template<typename T>
-IPuzzle* createInstance() { return (IPuzzle*)(new T); }
+template <typename T>
+IPuzzle *createInstance() { return (IPuzzle *)(new T); }
 
 enum SOLUTIONENUM
 {

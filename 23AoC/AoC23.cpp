@@ -6,23 +6,26 @@
 
 #include "AllIncludes.h"
 
+#define PUZZLE 0   // 0 = Today, 1 = Puzzle 1, 2 = Puzzle 2, ..., 25 = Puzzle 25
+#define SOLUTION 3 // 1 = Basic, 2 = Advanced, 3 = Both
 
+IPuzzle *GetPuzzle(int puzzle);
 
-#define PUZZLE 0 //0 = Today, 1 = Puzzle 1, 2 = Puzzle 2, ..., 25 = Puzzle 25
-#define SOLUTION 1 // 1 = Basic, 2 = Advanced, 3 = Both
-
-
-IPuzzle* GetPuzzle(int puzzle);
-
-int main()
+int main(int argc, char *argv[])
 {
-	auto puzzle = GetPuzzle(PUZZLE);
-	ASSERTMR(puzzle != nullptr, std::format("No puzzle of number {} found!", PUZZLE),-1);
-	if (SOLUTION & SOLUTIONENUM::Basic) {
+	// parse argc
+	int puzzleDay = argc > 1 ? std::stoi(argv[1]) : PUZZLE;
+	int solution = argc > 2 ? std::stoi(argv[2]) : SOLUTION;
+
+	auto puzzle = GetPuzzle(puzzleDay);
+	ASSERTMR(puzzle != nullptr, std::format("No puzzle of number {} found!", PUZZLE), -1);
+	if (solution & SOLUTIONENUM::Basic)
+	{
 		LOG("Basic solution:");
 		puzzle->Solve();
 	}
-	if (SOLUTION & SOLUTIONENUM::Advanced) {
+	if (solution & SOLUTIONENUM::Advanced)
+	{
 		LOG("Advanced solution:");
 		puzzle->SolveAdvanced();
 	}
@@ -31,28 +34,26 @@ int main()
 	return 0;
 }
 
-IPuzzle* GetPuzzle(int puzzle) {
+IPuzzle *GetPuzzle(int puzzle)
+{
+	if (puzzle == 0)
+	{
+		// get todays date
+		auto now = std::chrono::system_clock::now();
+		auto in_time_t = std::chrono::system_clock::to_time_t(now);
+		std::tm buf;
+		localtime_s(&buf, &in_time_t);
+		puzzle = buf.tm_mday;
+	}
+
 	switch (puzzle)
 	{
-	case 0:
-		return createInstance<TodaysPuzzle>();
-		break;
 	case 1:
 		return createInstance<Puzzle1>();
 	case 2:
-		//return createInstance<Puzzle2>();
+		// return createInstance<Puzzle2>();
 	default:
 		break;
 	}
 	return nullptr;
 }
-
-class TodaysPuzzle : IPuzzle {
-	void Solve() override
-	{
-	}
-	void SolveAdvanced() override
-	{
-	}
-};
-
