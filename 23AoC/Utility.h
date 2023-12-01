@@ -40,7 +40,7 @@ public:
 			file.close();
 		}
 		else {
-			std::cout << "Unable to open file";
+			LOG("Unable to open file")
 		}
 		return lines;
 	}
@@ -48,6 +48,9 @@ public:
 	static std::vector<std::vector<string>> ReadWordsByLines(const string& path, const string& delimeter=" ") {
 		std::vector<std::vector<string>> wordsByLines;
 		std::ifstream file(path);
+		
+
+
 		if (file.is_open()) {
 			string line;
 			while (getline(file, line)) {

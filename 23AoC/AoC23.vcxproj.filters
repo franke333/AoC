@@ -13,12 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Days">
+      <UniqueIdentifier>{7e5f6fe6-25b5-42ef-a28c-5c9c83ca3f7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inputs">
+      <UniqueIdentifier>{0acc8d24-68d5-4d03-aada-b54720da64c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AoC23.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Puzzles\Puzzle1.cpp">
+      <Filter>Days</Filter>
+    </ClCompile>
+    <ClCompile Include="Puzzle2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,5 +41,10 @@
     <ClInclude Include="AllIncludes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Inputs\Input1.txt">
+      <Filter>Inputs</Filter>
+    </Text>
   </ItemGroup>
 </Project>
