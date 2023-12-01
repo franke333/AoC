@@ -4,6 +4,7 @@
 #include <cassert>
 #include <format>
 
+#include "Stopwatch.h"
 #include "AllIncludes.h"
 
 #define PUZZLE 0   // 0 = Today, 1 = Puzzle 1, 2 = Puzzle 2, ..., 25 = Puzzle 25
@@ -19,15 +20,23 @@ int main(int argc, char *argv[])
 
 	auto puzzle = GetPuzzle(puzzleDay);
 	ASSERTMR(puzzle != nullptr, std::format("No puzzle of number {} found!", PUZZLE), -1);
+
+	
+
 	if (solution & SOLUTIONENUM::Basic)
 	{
+		
 		LOG("Basic solution:");
+		auto sw = Stopwatch();
 		puzzle->Solve();
+		LOG("Elapsed time: " <<  sw.elapsed() << "ms" );
 	}
 	if (solution & SOLUTIONENUM::Advanced)
 	{
 		LOG("Advanced solution:");
+		auto sw = Stopwatch();
 		puzzle->SolveAdvanced();
+		LOG("Elapsed time: " <<  sw.elapsed() << "ms" );
 	}
 
 	delete puzzle;
