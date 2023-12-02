@@ -58,7 +58,7 @@ public:
 		}
 		else
 		{
-			LOG("Unable to open file")
+			LOG("ERROR: Unable to open file")
 		}
 		return lines;
 	}
@@ -80,6 +80,7 @@ public:
 					words.push_back(line.substr(0, pos));
 					line.erase(0, pos + delimeter.length());
 				}
+				words.push_back(line);
 				wordsByLines.push_back(words);
 			}
 			file.close();
