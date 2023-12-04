@@ -63,7 +63,7 @@ public:
 		return lines;
 	}
 
-	static std::vector<std::vector<string>> ReadWordsByLines(const string &path, const string &delimeter = " ")
+	static std::vector<std::vector<string>> ReadWordsByLines(const string &path, const string &delimeter = " ", bool IgnoreEmpty = true)
 	{
 		std::vector<std::vector<string>> wordsByLines;
 		std::ifstream file(path);
@@ -77,10 +77,12 @@ public:
 				size_t pos = 0;
 				while ((pos = line.find(delimeter)) != string::npos)
 				{
-					words.push_back(line.substr(0, pos));
+					if (!IgnoreEmpty || line.substr(0, pos).length() > 0)
+						words.push_back(line.substr(0, pos));
 					line.erase(0, pos + delimeter.length());
 				}
-				words.push_back(line);
+				if (!IgnoreEmpty || line.length() > 0)
+					words.push_back(line);
 				wordsByLines.push_back(words);
 			}
 			file.close();
