@@ -31,14 +31,16 @@ int main(int argc, char *argv[])
 		LOG("Basic solution:");
 		auto sw = Stopwatch();
 		puzzle->Solve();
-		LOG("Elapsed time: " << sw.elapsed() << "ms");
+		auto time = sw.elapsed();
+		LOG("Elapsed time: " << time << "ms");
 	}
 	if (solution & SOLUTIONENUM::Advanced)
 	{
 		LOG("Advanced solution:");
 		auto sw = Stopwatch();
 		puzzle->SolveAdvanced();
-		LOG("Elapsed time: " << sw.elapsed() << "ms");
+		auto time = sw.elapsed();
+		LOG("Elapsed time: " << time << "ms");
 	}
 
 	delete puzzle;
@@ -63,6 +65,8 @@ IPuzzle *GetPuzzle(int puzzle, bool& byLines, bool& byWords)
 		return createInstance<Puzzle6>();
 	case 7:
 		return createInstance<Puzzle7>();
+	case 8:
+		return createInstance<Puzzle8>();
 	default:
 		break;
 	}
