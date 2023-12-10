@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <stack>
 
 using std::string;
 
@@ -39,7 +40,6 @@ using std::string;
 	}
 
 #pragma endregion
-
 class Utility
 {
 public:
