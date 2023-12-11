@@ -71,6 +71,8 @@ IPuzzle *GetPuzzle(int puzzle, bool& byLines, bool& byWords)
 		return createInstance<Puzzle9>();
 	case 10:
 		return createInstance<Puzzle10>();
+	case 11:
+		return createInstance<Puzzle11>();
 	default:
 		break;
 	}
