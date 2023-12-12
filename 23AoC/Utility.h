@@ -93,4 +93,20 @@ public:
 		}
 		return wordsByLines;
 	}
+
+	static std::vector<string> Split(const string &input, const string &delimeter = " ", bool IgnoreEmpty = true)
+	{
+		std::vector<string> words;
+		size_t pos = 0;
+		string line = input;
+		while ((pos = line.find(delimeter)) != string::npos)
+		{
+			if (!IgnoreEmpty || line.substr(0, pos).length() > 0)
+				words.push_back(line.substr(0, pos));
+			line.erase(0, pos + delimeter.length());
+		}
+		if (!IgnoreEmpty || line.length() > 0)
+			words.push_back(line);
+		return words;
+	}
 };
