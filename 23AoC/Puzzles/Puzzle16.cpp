@@ -6,7 +6,7 @@ class Puzzle16 : IPuzzle
 
 	std::pair<int, int> getD(int i)
 	{
-		return {(i%2)*(2-i),((i+1)%2)*(-1+i)};
+		return {(i % 2) * (2 - i), ((i + 1) % 2) * (-1 + i)};
 	}
 	size_t spos = 0;
 	int sdir = 1;
