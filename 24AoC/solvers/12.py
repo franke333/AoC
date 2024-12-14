@@ -3,7 +3,7 @@ checked = [[False for _ in range(len(inp))] for _ in range(len(inp))]
 ok = lambda x: all(0 <= y < len(inp) for y in x)
 dirs = [(0,1),(-1,0),(0,-1),(1,0)]
 perim = lambda x,y: sum([1 for dx,dy in dirs if ok((x+dx,y+dy)) and inp[x+dx][y+dy] == inp[x][y]],0)
-check = lambda x,y,checked: checked.__getitem__(x).__setitem__(y,True)
+check = lambda x,y,checked: checked[x].__setitem__(y,True)
 fence = lambda x,y,c,checked: [sum(x) for x in zip((1,4-perim(x,y)),*[fence(x+dx,y+dy,c,checked) for dx,dy in dirs])] if \
     ok((x,y)) and c==inp[x][y]  and not checked[x][y] and not check(x,y,checked) else (0,0)
 print(sum(a*b for a,b in [fence(x,y,inp[x][y],checked) for x in range(len(inp)) for y in range(len(inp))]))
@@ -29,4 +29,3 @@ for x in range(len(inp)):
                 s += sides(x-1,y,2)*fence(x-1,y,inp[x-1][y],[[False for _ in range(len(inp))] for _ in range(len(inp))])[0]
             s += sides(x,y)*fence(x,y,inp[x][y],checked)[0]
 print(s)
-
