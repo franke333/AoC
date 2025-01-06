@@ -1,31 +1,56 @@
-inp = open("in/09.txt").readlines()[0]
-front_head = 0
-back_head = len(inp)-1
-end_remaining = 0
-checksum = 0
-pos = 0
-get_checksum = lambda curr_checksum, start_pos, length, ids: [int(((2*start_pos+length-1)/2) * length * ids + curr_checksum), length + start_pos]
-while front_head < back_head:
-    checksum, pos = get_checksum(checksum, pos, int(inp[front_head]), front_head//2)
-    #print(f"{int(inp[front_head])}*{(front_head//2)}")
-    #print(checksum)
-    front_head += 1
-    empty_space = int(inp[front_head])
-    while(empty_space > 0):
-        if(end_remaining == 0):
-            end_remaining = int(inp[back_head])
-            back_head -= 2
-        fill = min(empty_space, end_remaining)
-        end_remaining -= fill
-        empty_space -= fill
-        checksum,pos =  get_checksum(checksum,pos, fill, back_head//2 + 1)
-        #print(f"{fill}*{(back_head//2 + 1)}")
-        #print(checksum)
-    front_head += 1
-#checksum, pos = get_checksum(checksum, pos, int(inp[front_head]), front_head//2)
-#print(f"{int(inp[front_head])}*{(front_head//2)}")
-#print(checksum)
-checksum, pos = get_checksum(checksum, pos, end_remaining, back_head//2 + 1)
-#print(f"{end_remaining}*{(back_head//2 + 1)}")
-print(checksum)
+inp = open("in/09.txt").read()
+fp = 0
+bp,br = len(inp)+1,0
+s = 0
+n = 0
+while fp < bp:
+    if fp%2 == 0:
+        nn = int(inp[fp])
+        s += (fp//2)*(nn+n+n-1)*nn//2
+        n += nn
+        fp += 1
+    else:
+        nn = int(inp[fp])
+        while nn > 0:
+            nn -= 1
+            while br == 0:
+                bp -= 2
+                br = int(inp[bp])
+            s += (bp//2) * n
+            n += 1
+            br -= 1
+        fp += 1
+while br > 0:
+    s += (bp//2) * n
+    n += 1
+    br -= 1
+print(s)
 
+spaces= []
+numeros = []
+pos = 0
+space = False
+id=0
+for a in inp:
+    if space:
+        spaces.append((pos,int(a)))
+    else:
+        numeros.append((pos,int(a),id))
+        id += 1
+    pos += int(a)
+    space = not space
+for j in range(len(numeros)-1,-1,-1):
+    p,s,id = numeros[j]
+    for i in range(len(spaces)):
+        pp,ss = spaces[i]
+        if ss >= s and pp < p:
+            if ss == s:
+                spaces.remove((pp,ss))
+            else:
+                spaces[i] = (pp+s,ss-s)
+            numeros[j] = (pp,s,id)
+            break
+ss = 0
+for p,s,id in numeros:
+    ss += (id*(s+p+p-1)*s)//2
+print(ss)
