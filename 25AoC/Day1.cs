@@ -22,7 +22,6 @@
                 dial += direction ? change : -change;
                 zerosClick += Math.Abs(dial)/100 + (dial < 1 && dial + change != 0 ? 1 : 0);
                 dial = MathMod(dial, 100);
-                Console.WriteLine(dial + " " + zerosClick);
                 if (dial == 0)
                     zerosEnd++;
             }
