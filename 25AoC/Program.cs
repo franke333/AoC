@@ -4,6 +4,6 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Day2.Execute();
+        Day8.Execute();
     }
 }
