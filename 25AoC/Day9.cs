@@ -58,6 +58,11 @@ namespace _25AoC
             while (q.Count > 0)
             {
                 var (x, y) = q.Dequeue();
+                calced++;
+                if(calced % 500_000 == 0)
+                {
+                    Console.WriteLine($"{100*calced/(float)(size*size)}%");
+                }
                 foreach (var (dx, dy) in new (long, long)[] { (1, 0), (-1, 0), (0, 1), (0, -1) })
                 {
                     long nx = x + dx;
@@ -90,6 +95,10 @@ namespace _25AoC
                 {
                     var (ax, ay) = corners[i];
                     var (bx, by) = corners[j];
+                    ax -= offset;
+                    ay -= offset;
+                    bx -= offset;
+                    by -= offset;
                     long area = (1 + Math.Abs(ax - bx)) * (1 + Math.Abs(ay - by));
                     if(area < largestArea)
                         continue;
